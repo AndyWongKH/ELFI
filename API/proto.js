@@ -1,6 +1,6 @@
 // Variable pour construire l'Url
 // https://fr.openfoodfacts.org/cgi/search.pl?action=process&search_terms=chocolat&sort_by=unique_scans_n&page_size=24&page=2
-const url = 'https://fr.openfoodfacts.org/cgi/search.pl?search_terms=';
+var url = 'https://fr.openfoodfacts.org/cgi/search.pl?search_terms=';
 const actionProcess = '&search_simple=1&action=process';
 var inputVal = '';
 const urlPage = '&page='

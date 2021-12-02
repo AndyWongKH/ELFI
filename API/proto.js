@@ -1,10 +1,10 @@
 // Variable pour construire l'Url
 // https://fr.openfoodfacts.org/cgi/search.pl?action=process&search_terms=chocolat&sort_by=unique_scans_n&page_size=24&page=2
-var url = 'https://fr.openfoodfacts.org/cgi/search.pl?search_terms=';
-var actionProcess = '&search_simple=1&action=process';
+const url = 'https://fr.openfoodfacts.org/cgi/search.pl?search_terms=';
+const actionProcess = '&search_simple=1&action=process';
 var inputVal = '';
-var urlPage = '&page='
-var urlInJson = '&json=true';
+const urlPage = '&page='
+const urlInJson = '&json=true';
 
 var lancerRecherche = document.getElementById('lancerRecherche');
 lancerRecherche.addEventListener('click',demarrerRecherche);
@@ -127,7 +127,7 @@ function DisplaySearchResult(data){
         // 
         
 
-        // 
+        // A optimiser avec une boucle for
             let A =  document.createElement('p');
             A.classList.add('nutriRank');
             A.textContent = "A";
@@ -172,6 +172,7 @@ function DisplaySearchResult(data){
         infos.appendChild(titreNutriscore);
         titreNutriscore.append(listNutriScore);
 
+        // A optimiser avec une boucle for
         listNutriScore.appendChild(A);
         listNutriScore.appendChild(B);
         listNutriScore.appendChild(C);

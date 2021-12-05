@@ -42,25 +42,42 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 input[type=submit] {
-    background-color: #53af57;
+    background-color: #2A9D8F;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 5px;
 }
 input[type=submit]:hover {
     background-color: white;
     color: #53af57;
     border: 1px solid #53af57;
+    
 }
 
-.lien{
+.lienFormConnexion{
     text-decoration: none;
     color : black;
     padding: 5px;
 }
-.lien:hover{
+.lienFormConnexion:hover{
     color : red;
+}
+#fermer{
+    border-radius: 50%;
+    padding:6px 20px;
+    font-size: x-large;
+    border-style: none;
+    background: rgba(119, 118, 118, 0.2);
+    color: white;
+    position: relative;
+    left: -15px;
+    top: 15px;
+}
+
+#fermer:hover{
+    background: rgba(119, 118, 118, 0.5);
 }

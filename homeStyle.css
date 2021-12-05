@@ -445,3 +445,76 @@
         #footSearch{
             display: none;
         }
+
+/* STYLE POP UP CONNEXION */
+#connexionPopUp{
+    position: fixed;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: rgba(83, 88, 84, 0.2);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+#container{
+    margin : auto;
+    margin-right: auto;
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+    opacity: 1;
+}
+/* Bordered form */
+#form_connexion {
+    border-radius: 15px;
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+opacity :1}
+
+#container h1{
+    width: 38%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+/* Full-width inputs */
+.formInput {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color: #2A9D8F;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: #53af57;
+    border: 1px solid #53af57;
+    
+}
+
+.lienFormConnexion{
+    text-decoration: none;
+    color : black;
+    padding: 5px;
+}
+.lienFormConnexion:hover{
+    color : red;
+}
+

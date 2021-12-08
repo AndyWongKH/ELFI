@@ -9,7 +9,7 @@ body{
 }
 
 #container{
-    width:400px;
+    width:500px;
     margin:0 auto;
     margin-top:10%;
     opacity: 1;
@@ -31,7 +31,7 @@ opacity :1}
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -55,7 +55,6 @@ input[type=submit]:hover {
     background-color: white;
     color: #53af57;
     border: 1px solid #53af57;
-    
 }
 
 .lienFormConnexion{
@@ -81,3 +80,4 @@ input[type=submit]:hover {
 #fermer:hover{
     background: rgba(119, 118, 118, 0.5);
 }
+

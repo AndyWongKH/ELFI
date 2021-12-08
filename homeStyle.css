@@ -447,7 +447,7 @@
         }
 
 /* STYLE POP UP CONNEXION */
-#connexionPopUp{
+.inscriptionPopUp{
     position: fixed;
     margin: auto;
     width: 100%;

@@ -1,41 +1,56 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <title>Inscription - ELFI</title>
+    <title>inscription - ELFI</title>
     <link rel="stylesheet" href="styleFormulaire.css">
+    <script src="script_js/popUp.js" defer ></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Placer en haut du body -->
-    <!-- Pop-Up Connexion -->
-    <section id = "connexion">
-        <div id="container">
-        <!-- zone de connexion -->
+  </head>
+  <body>
+    
+    <section id= "connexion">
+      <div id="container">
+        <button id="fermer" onclick="FermerPopUp()">x</button>  
+        <form id="form_connexion" method= "post" action="Monformulaire">
+          <h1>Inscription </h1>
+          
+          
+          
+          <!-- !marche pas -->
+          <label for="pseudo">Pseudo : </label>
+          <input type="text" class="formInput" id="pseudo" name="username">
+          <!-- !marche pas -->
+          
+            <p><span>Adresse e-mail:</span> <input id="AdE" name="email" type="email" required ></input></p>
+          
+            <p><span>Numéro de téléphone:</span> <input id="Ntele" name="Numero" type="text"></input></p>        
 
-        <form id="form_connexion" action="verification.php" method="POST">
-            <h1>Inscription</h1>
+            <p><span>Mot de passe: </span> <input class="formInput" id="mot de passe" name="mot de passe" type="password" required ></input></p>
+    
+            <p><span>Valider le mot de passe:</span> <input class="formInput" id="MdpValider" name="MdpValider" type="password" required ></input></p>
+          
+          
 
-            <label><b>Nom d'utilisateur</b></label>
-            <input class="formInput" title="entrez votre pseudo" type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
-        
-            <label><b>Mot de passe</b></label>
-            <input class="formInput" title="entrez votre mot de passe" type="password" placeholder="Entrer le mot de passe" name="password" required>
-            
-            <label><b>Vérifier votre mot de passe</b></label>
-            <input class="formInput" title="entrez à nouveau votre mot de passe" type="password" placeholder="Entrer le mot de passe" name="password2" required>
-            
-            <input type="submit" id='submit' value="S'inscrire" >
-        
-            <a class = "lienFormConnexion" href="connexion.html">Se connecter</a>
-            <a class = "lienFormConnexion" href="#">Mot de passe oublié?</a>
-        
+          
+            <input type="checkbox" name="verification" id="recevoir" checked /> 
+            <label class="optionnel">J'accepte de recevoir des newsletter</label>
+          
+                
+          <div class="div_checkBox">
+            <input type="checkbox" name="verification" id="condition" required /> 
+            <label class="optionnel">J'accepte les condition général d'utilisation</label>
+          </div>
+
+          <div class="div_checkBox">
+            <input class = "lienFormConnexion" type="submit" name="envoyer" id="envoyer" value="Envoyer" onclick="return confirm('etes vous sûr de continuer?')" />
+            <input class = "lienFormConnexion" type="reset" name="effacer" id="effacer" value="Effacer" />
+          </div>
         </form>
-        </div>
+      </div>
     </section>
-
-</body>
+  </body>
 </html>

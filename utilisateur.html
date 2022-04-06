@@ -1,58 +1,80 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Welcome User - Elfi</title>
-    <!-- Google font : poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="userStyle.css">
-</head>
+    <head>
+        <title>Bonjour User - Elfi</title>
+        <!-- Google font : poppins -->
+        <meta charset="UTF-8"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="userStyle.css">
+    </head>
 
-<body>
+    <body>
+        <!-- EN TETE -->
+        <div id="container1">
+            <div id="badge">
+                <p>U</p> <!--Afficher la première lettre du pseudo-->
+            </div>
 
-    <div id="u_header">
-        <div id="u_logoUser">
-
+            <div id="badgeText">
+                <p>Utilisateur</p> <!--Afficher le nom de l'utilisateur-->
+                <a href="index.html">Se déconnecter</a> <!--Lance une fonction php destroy session-->
+            </div>
         </div>
-        <p id="u_username">
-            Utilisateur
-        </p>
-    </div>
 
-    <div class="u_upperBoards">
-        <div id="u_dashBoard">
-            <h2>Mon Dashboard</h2>
-            <div id="u_imc">
-                <h3>IMC</h3>
-                <div id="u_box">
-                    <p>N/C</p>
+        <!-- DASHBOARD -->
+        <div id="dashboard">
+            <h3>Mes infos</h3>
+            <div id="infos">
+                <div class="itemInfo">
+                    <h4>Taille</h4>
+                    <div>
+                        <p>175 cm</p> <!--Modifiable-->
+                    </div>
+                </div>
+
+                <div class="itemInfo">
+                    <h4>Poids</h4>
+                    <div>
+                        <p>75 kg</p> <!--Modifiable-->
+                    </div>
+                </div>
+
+                <div class="itemInfo">
+                    <h4>IMC</h4>
+                    <div>
+                        <p>24.5</p> <!--Modifiable-->
+                    </div>
+                </div>
+
+                <div class="itemInfo">
+                    <h4>Moyenne nutriscore</h4>
+                    <div>
+                        <p>A</p> <!--Modifiable-->
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="u_sugg">
-            <h2>Suggestion</h2>
-        </div>
-    </div>
 
-    <div class="u_upperBoards">
-        <div id="u_inventaire" class="u_lowerBoardStyle">
-            <div class="u_searchbar">
-                <h2>Mon inventaire</h2>
-                <input class="u_searchStyle" type="search" placeholder="Rechercher ..." />
+        <!-- INVENTAIRE -->
+        <div id="inventaire">
+            <div id="titreContainer">
+                <h3>Mon inventaire</h3>
+                <form action="" method="get"> <!--Lien vers la page recherche-->
+                    <input type="text" id="chercherP" name="chercherP" placeholder="Rechercher ..."/>
+                    <label for="chercherP">
+                        <button type="submit">Trouver un produit</button>
+                    </label>
+                </form>
             </div>
 
-        </div>
-        <div id="u_recette" class="u_lowerBoardStyle">
-            <div class="u_searchbar">
-                <h2>Mes recettes</h2>
-                <input class="u_searchStyle" type="search" placeholder="Rechercher ..." />
+            <!-- Zone d'affichage des produits dans l'inventaire -->
+            <div id="productContainer">
+
             </div>
-
         </div>
-    </div>
-
-</body>
+    </body>
 
 </html>

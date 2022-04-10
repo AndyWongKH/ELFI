@@ -5,7 +5,7 @@ function AfficherPopUP(){
     let popUp_place = document.getElementById('popUp_place');
     let inscription = document.createElement('iframe');
     inscription.classList.add('inscriptionPopUp');
-    inscription.setAttribute('src','connexion.html');
+    inscription.setAttribute('src','connexion.php');
     inscription.setAttribute('id','iframe_connexion');
     popUp_place.appendChild(inscription);
 }

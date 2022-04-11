@@ -15,24 +15,34 @@
     <section id= "connexion">
       <div id="container">
         <button id="fermer" onclick="FermerPopUp()">x</button>  
-        <form id="form_connexion" method= "post" action="Monformulaire">
+        <form id="form_connexion" method= "post" action="confirmationinscription.php">
           <h1>Inscription </h1>
           
-          
-          
-          <!-- !marche pas -->
-          <label for="pseudo">Pseudo : </label>
-          <input type="text" class="formInput" id="pseudo" name="username">
-          <!-- !marche pas -->
-          
-            <p><span>Adresse e-mail:</span> <input id="AdE" name="email" type="email" required ></input></p>
-          
-            <p><span>Numéro de téléphone:</span> <input id="Ntele" name="Numero" type="text"></input></p>        
+          <p><span>Adresse e-mail:</span> <input id="AdE" name="email" type="email" required ></input></p>
 
-            <p><span>Mot de passe: </span> <input class="formInput" id="mot de passe" name="mot de passe" type="password" required ></input></p>
-    
-            <p><span>Valider le mot de passe:</span> <input class="formInput" id="MdpValider" name="MdpValider" type="password" required ></input></p>
+          <p><span>Nom:</span> <input id="nomE" name="nomE" type="text" required ></input></p>
           
+          <p><span>Prénom:</span> <input id="prenomE" name="prenomE" type="text" required ></input></p>     
+
+          <p><span>Mot de passe: </span> <input class="formInput" id="pwd" name="pwd" type="password" required ></input></p>
+    
+          <p><span>Valider le mot de passe:</span> <input class="formInput" id="pwd" name="MdpValider" type="password" required ></input></p>
+
+          <!--<p><input type="checkbox" onclick="afficherPwd()">Show Password<P>!-->
+
+          <p><span>Date de naissance:</span> <input class="formInput" id="dateE" name="dateE" type="Date" required ></input></p>
+
+          <p><span>Adresse:</span> <input class="formInput" id="AdresseE" name="AdresseE" type="text"></input></p>  
+
+          <p><span>Taille en cm:</span> <input class="formInput" id="tailleE" name="tailleE" type="number" step="any"></input></p>  
+
+          <p><span>Poids en kg:</span> <input class="formInput" id="poidsE" name="poidsE" type="number"></input></p>
+
+          <p><span>Sexe:</span> <select class="formInput" id="sexeE" name="sexeE"> 
+                                        <option>M.</option>
+                                        <option>Mme</option>
+                                </select></p>
+
           
 
           

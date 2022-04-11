@@ -7,7 +7,8 @@
 
 </head>
 <body>
-<?php
+
+    <?php
         class Produit{
             public $id;
             public $image;
@@ -95,7 +96,7 @@
         function CarteProduit($id, $src, $alt, $marqueP, $nomP, $nutriscore ){
             $selected = "Off" ;
             $nutriListe = ["A","B","C","D","E","I"];
-
+            $nb = 0; // pour incrémenter le nombre de produit
 
             echo("<div id='$id' class='carte'>
                     <div class='picture'>
@@ -128,16 +129,17 @@
             echo("
                         </div>
                     </div>
-                    <div class = 'selectorContainer'>
-                        <button class='retirerBtn'>-</button>
-                        <input type='number' value = '0'>
-                        <button class='ajouterBtn'>+</button>
-                        <button class='ajouterPanier'>Ajouter</button>
-                    </div>
+                    <form class = 'selectorContainer' action='' method='get'>
+                        <button class='retirerBtn'> - </button>
+                        <input type='number' value = '$nb' name='quantites'>
+                        <button class='ajouterBtn' onclick = ''>+</button>
+                        <button type='submit' class='ajouterPanier'>Ajouter</button>
+                    </form>
                   </div>"
                 );
-        }
+           
 
+        }
         function DisplayResult($json_data){
             $produit = new Produit();
 
@@ -174,7 +176,19 @@
                 CarteProduit($id, $src, $alt, $marqueP, $nomP, $nutriscore );
             }
         }
+    ?>
 
+    <!-- Version propre du php -->
+    <?php
+        class CarteProduit {
+            public $id;
+            public $image;
+            public $marque;
+            public $nom;
+            public $score;
+
+            
+        }
     ?>
     <main>
         <header>

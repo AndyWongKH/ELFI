@@ -2,10 +2,55 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Recherche Elfi</title>
+
 </head>
 <body>
-    <?php
+<?php
+        class Produit{
+            public $id;
+            public $image;
+            public $marque;
+            public $nom;
+            public $score;
+
+            function set_id($id){
+                $this->id = $id;
+            }
+            function get_id(){
+                return $this->id;
+            }
+
+            function set_image($image){
+                $this->image = $image;
+            }
+            function get_image(){
+                return $this->image;
+            }
+
+            function set_marque($marque){
+                $this->marque = $marque;
+            }
+            function get_marque(){
+                return $this->marque;
+            }
+
+            function set_nom($nom){
+                $this->nom = $nom;
+            }
+            function get_nom(){
+                return $this->nom;
+            }
+
+            function set_score($score){
+                $this->score = $score;
+            }
+            function get_score(){
+                return $this->score;
+            }
+        };
+
         $url = "https://fr.openfoodfacts.org/cgi/search.pl?search_terms=";
         $actionProcess = "&search_simple=1&action=process";
         $inputVal = "";
@@ -63,7 +108,7 @@
                     <div class='nutriContainer'>
                         <p>Nutri-Score</p>
                         <div class='zoneListeNutri'>
-                            <ul>");
+                            <ul class='nutriRank'>");
 
             $estAttribue = False;
             for($i = 0; $i <= 4 ; $i++ ){
@@ -83,13 +128,19 @@
             echo("
                         </div>
                     </div>
+                    <div class = 'selectorContainer'>
+                        <button class='retirerBtn'>-</button>
+                        <input type='number' value = '0'>
+                        <button class='ajouterBtn'>+</button>
+                        <button class='ajouterPanier'>Ajouter</button>
+                    </div>
                   </div>"
                 );
-            echo("le nutriscore est $nutriscore");
-            echo("<br>");
         }
 
         function DisplayResult($json_data){
+            $produit = new Produit();
+
             // Récupérer les métadonnées
             $nbResultat = $json_data -> count;
             $page = $json_data -> page;
@@ -98,16 +149,16 @@
             $nbPage = ceil($nbResultat / $taillePage) ; // arrondi supérieur
 
             // test
-            echo("<br>");
-            echo("nbResultat : $nbResultat");
-            echo("<br>");
-            echo("page : $page");
-            echo("<br>");
-            echo("nbResPage : $nbResPage");
-            echo("<br>");
-            echo("taillePage : $taillePage");
-            echo("<br>");
-            echo("nbPage : $nbPage");
+            // echo("<br>");
+            // echo("nbResultat : $nbResultat");
+            // echo("<br>");
+            // echo("page : $page");
+            // echo("<br>");
+            // echo("nbResPage : $nbResPage");
+            // echo("<br>");
+            // echo("taillePage : $taillePage");
+            // echo("<br>");
+            // echo("nbPage : $nbPage");
 
             // Afficher les résultats
             $indice = $json_data -> page_count;
@@ -121,11 +172,20 @@
                 $nutriscore = $product -> nutrition_grades_tags[0];
                 $marqueP = $product -> brands ;
                 CarteProduit($id, $src, $alt, $marqueP, $nomP, $nutriscore );
-                echo("#####################################################");
             }
         }
 
-        DisplayResult($json_data);
     ?>
+    <main>
+        <header>
+
+        </header>
+        <div>
+            <!-- Barre de navigation avec les métadonnées -->
+        </div>
+        <div id="zoneResultats">
+            <?php DisplayResult($json_data); ?>
+        </div>
+    </main>
 </body>
 </html>

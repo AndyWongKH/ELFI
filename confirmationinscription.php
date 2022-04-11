@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
+    <meta charset="UTF-8">
     <title>User Inscription - Elfi</title>
-    <!-- Google font : poppins -->
+    <title>inscription - ELFI</title>
+    <link rel="stylesheet" href="styleFormulaire.css">
+    <script src="script_js/popUp.js" defer ></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="userStyle.css">
-    <meta charset="utf-8">
-</head>
+  </head>
 
 <body>
     
     <section id= "connexion">
       <div id="container">
+          <button id="fermer" onclick="FermerPopUp()">x</button>  
         <?php
-        require ('BD.php');
+         require ('BD.php');
+        function verifiermail($email,$base){
+  $session=connexion();
+  $trouve = false;
+  mysqli_select_db($session, $base);
+      $requete1=" SELECT email_user FROM utiilisateur";
+      $execute1=mysqli_query($session,$requete1);
+       while ($ligne=mysqli_fetch_array($execute1)) {
+        if ($email==$ligne["email_user"]) {
+          $trouve = true;
+
+    }
+}
+return $trouve;
+}
+       
           $email=$_POST["email"];
           $nom=$_POST["nomE"];
           $prenom=$_POST["prenomE"];
@@ -28,7 +45,12 @@
           $sexe=$_POST["sexeE"];
 
           $imc= $poids/($taille*$taille);
-
+          $nombase="elfi";
+          $trouve = verifiermail($email,$nombase);
+          if ($trouve==true){ 
+          echo ("Un utiilisateur a déjà été enregistré avec cet email");
+          }
+          else {
           $insertion="INSERT INTO `utiilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$imc', '$sexe') ";
           $execute=mysqli_query($session,$insertion);
       if($execute==true){
@@ -37,10 +59,10 @@
         echo("L'inscription n'as pas pu être effectué");
       };  
 
-          
+         } 
         ?>
-        <button id="fermer" onclick="FermerPopUp()">x</button>  
-       <input type="submit" id='submit' value='Se Connecter' >
+      
+       <a href="connexion.php" > <input type="submit" id='submit'  value='Se Connecter' ></a>
       </div>
     </section>
   

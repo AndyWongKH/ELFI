@@ -37,13 +37,14 @@ return $trouve;
           $email=$_POST["email"];
           $nom=$_POST["nomE"];
           $prenom=$_POST["prenomE"];
-          $pwd=$_POST["pwd"];
+          $mdp=$_POST["pwd"];
           $date=$_POST["dateE"];
           $adresse=$_POST["AdresseE"];
           $taille=$_POST["tailleE"];
           $poids=$_POST["poidsE"];
           $sexe=$_POST["sexeE"];
-
+          $cost=['cost' => 12];
+          $pwd=password_hash($mdp, PASSWORD_BCRYPT, $cost);
           $imc= $poids/($taille*$taille);
           $nombase="elfi";
           $trouve = verifiermail($email,$nombase);

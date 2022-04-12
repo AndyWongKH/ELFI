@@ -146,21 +146,26 @@
 
 ?>
 <body>
-    <header>
-        
-    </header>
-    <main>
-        <div id="shopping">
-            <img id="imgPanier"src="image/cart.svg" alt="icone de panier"/>    
+<header>
+        <!-- SLOGAN -->
+        <div id="slogan">
+            <h1>Mangez <em>mieux.</em> <br> Mangez <strong>Sainement</strong></h1>
         </div>
-        <header>
+        <div id="logo_searchBar">
+            <div id="shopping">
+                <img id="imgPanier"src="image/LogoElfi.svg" alt="icone de panier"/>    
+            </div>
+
             <form id="searchBar" action="rechercher.php" method="get">
                 <input id="chercherP" type="text" name="chercherP" placeholder="   chercher un produit">
                 <input type="text" name="page" value="1" style="display: none;"/> 
-                <button type="submit">Chercher</button>
+                <button type="submit">| Chercher</button>
             </form>
-        </header>
-        <div>
+        </div>
+        <div id="vide"></div>
+    </header>
+    <main>
+        <div id="infoRes">
             <!-- Barre de navigation avec les données -->
             <h3>Résultat pour : <?php echo($sujetRecherche); ?></h3>
             <p>Nombre de résutlats : 

@@ -161,10 +161,12 @@ nav{
 #searchBar{
     margin-bottom: 15px;
     padding: 5px 25px 5px 25px;
+    width: 275px;
     border-radius: 50px;
     box-shadow: 0px 0px 9px -3px rgba(74, 74, 74, 0.75);
     -webkit-box-shadow: 0px 0px 9px -3px rgba(74, 74, 74, 0.75);
     -moz-box-shadow: 0px 0px 9px -3px rgba(74, 74, 74, 0.75);
+    background-color: white;
 }
 #searchBar:hover{
     box-shadow: 0px 0px 9px -3px #a6c858;
@@ -183,9 +185,53 @@ nav{
     height: 25px;
 }
 #imgPanier{
-    width: 50px;
-    height: auto;
+    width: 300px;
+    height: 300px;
 }
+
+
+
+header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url(image/banniere.jpg);
+    height: 450px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+#infoRes{
+    text-align: center;
+}
+#slogan{
+    font-size: 1em;
+    flex-basis:25% ;
+    }
+    #slogan em{
+    color: #F4A261;
+    font-size: 1.2em;
+    }
+    #slogan strong{
+    color: #2A9D8F;
+    font-size: 1.2em;
+    }
+#vide{
+        width: 25%;
+        height: 30px;
+    }
+#logo_searchBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+
+
 
 
 

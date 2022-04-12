@@ -1,6 +1,7 @@
 <?php
     session_start();
     $_SESSION["panier"] = [];
+    $_SESSION["total"] = 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,7 +67,7 @@
         <div id="inventaire">
             <div id="titreContainer">
                 <h3>Mon inventaire</h3>
-                <form action="rechercher2.php" method="get"> <!--Lien vers la page recherche-->
+                <form action="rechercher.php" method="get"> <!--Lien vers la page recherche-->
                     <input type="text" id="chercherP" name="chercherP" placeholder="Rechercher ..."/>
                     <input type="text" name="page" value="1" style="display: none;"/>
                     <label for="chercherP">

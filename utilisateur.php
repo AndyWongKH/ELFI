@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $_SESSION["panier"] = [];
+?>
 <!DOCTYPE html>
 <html>
 
@@ -64,6 +68,7 @@
                 <h3>Mon inventaire</h3>
                 <form action="rechercher2.php" method="get"> <!--Lien vers la page recherche-->
                     <input type="text" id="chercherP" name="chercherP" placeholder="Rechercher ..."/>
+                    <input type="text" name="page" value="1" style="display: none;"/>
                     <label for="chercherP">
                         <button type="submit">Trouver un produit</button>
                     </label>

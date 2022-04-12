@@ -9,7 +9,6 @@
 function connexion(){
 	$nomlogin="root";
 	$passwd="";
-	// $session= mysqli_connect('localhost', $nomlogin, $passwd);
 	$session= mysqli_connect('127.0.0.1', $nomlogin, $passwd);
 	
 	return $session;

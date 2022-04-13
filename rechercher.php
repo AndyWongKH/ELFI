@@ -52,8 +52,6 @@
         return $url;
     };
     $url = linkConstructor($_SESSION["sujetRecherche"], $page);
-    // echo(linkConstructor($sujetRecherche,$page));
-    // echo("<br>");
 
     // Recupérer les données en JSON
     $json = file_get_contents($url);

@@ -14,8 +14,6 @@
     };
     $_SESSION["id_armoire"] = $id_armoire;
 
-    echo("ID armoire = $id_armoire");
-
     // Fermer le popup pour faire apparaitre le contenu dans une fenêtre parent
     $fermerPopUp = $_SESSION["fermerPopUp"];
     if($fermerPopUp === False){
@@ -32,19 +30,7 @@
         $prenomUtilisateur = $ligne[1];
     };
     $initial = $nomUtilisateur[0]; // récupérer l'initial du prénom pour personaliser le badge 
-
-    // Récupérer les produits dans l'armoire de l'utilisateur
-    // $produit = select distinct id_prod,nom_prod,marque_prod, from contenir where id_armoire = $id_armoire
-    // array_push($listProd, $produit)
-
-    // Pour chaques produits, faire la somme des quantités
-    // for each ($listProd as $produit){
-    //      $produit =  
-    //      $quantite = count produit 
-    //      array_push($listProd2, )
-    // }
-    
-    $listProd = ListeProduitInv($session,$id_armoire);
+    $listProd = ListeProduitInv($session,$id_armoire); // ajouter la liste des produit dans une liste
 ?>
 <!DOCTYPE html>
 

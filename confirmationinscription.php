@@ -20,8 +20,8 @@
         <?php
          require ('BD.php');
         function verifiermail($email,$base){
-        $session=connexion();
-        $trouve = false;
+  $session=connexion();
+  $trouve = false;
   mysqli_select_db($session, $base);
       $requete1=" SELECT email_user FROM utilisateur";
       $execute1=mysqli_query($session,$requete1);
@@ -52,22 +52,19 @@ return $trouve;
           echo ("Un utiilisateur a déjà été enregistré avec cet email");
           }
           else {
-            // Insertion d'un utilisateur
-            $insertion="INSERT INTO `utilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$imc', '$sexe'); ";
-            $execute=mysqli_query($session,$insertion);
-            if($execute==true){
-              echo("</br>L'inscription a été enregistrée !</br>");
-            }else{
-              echo("L'inscription n'as pas pu être effectué");
-            };  
-            // insertion d'une armoire
-          $insertion = "INSERT INTO armoire(email_user) VALUES('$email')";
+          $insertion="INSERT INTO `utilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$imc', '$sexe') ";
           $execute=mysqli_query($session,$insertion);
-          if($execute==true){
-            echo("</br>L'armoire a été enregistrée !</br>");
-          }else{
-            echo("L'armoire n'as pas pu être effectué");
-          };  
+        if($execute==true){
+         $insertion2=" INSERT INTO `armoire` (`id_armoire`, `email_user`) VALUES (NULL ,'$email')";
+         $execute2=mysqli_query($session,$insertion2);
+        }
+      if($execute2==true){
+        echo("</br>L'inscription a été enregistrée !</br>");
+      
+      }else{
+        echo("L'inscription n'as pas pu être effectué");
+      };  
+
          } 
         ?>
       

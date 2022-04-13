@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
+ <?php   If(isset($_GET['erreur']) && $_GET['erreur'] == 1){ 
+        echo("<h3 class='alert-danger'>Nom d'utilisateur ou mot de passe incorect</h3>")  ;  
+   }?>
 <head>
     <meta charset="UTF-8">
     <title>Connexion - ELFI</title>

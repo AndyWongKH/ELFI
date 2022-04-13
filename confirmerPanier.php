@@ -9,6 +9,7 @@
 
     $message = InsererProduit($session,$panier); // Insertion des produits si ils ne sont pas encore dans la base
     $insertionArmoire = InsererPanier($session,$panier, $idArmoire); // Insertion des produits dans l'armoire utilisateur
+    echo($insertionArmoire);
     $_SESSION["panier"] = 0; //Réinitialisation du panier
 ?>
 
@@ -28,7 +29,7 @@
 </body>
 </html>
 <script>
-    // setTimeout(function(){
-    // window.location.href = "utilisateur.php";
-    // }, 3000);
+    setTimeout(function(){
+    window.location.href = "utilisateur.php";
+    }, 3000);
 </script>

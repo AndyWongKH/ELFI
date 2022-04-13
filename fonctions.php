@@ -104,5 +104,59 @@
         return $message;
     };
 
+    function ListeProduitInv($session, $id_armoire){
+        $listProd = [];
+        $requeteIdProd = ("SELECT DISTINCT id_prod FROM contenir WHERE id_armoire = $id_armoire"); 
+        $resIdProd = mysqli_query($session,$requeteIdProd);
+        if($resIdProd == TRUE){
+            while($ligne = mysqli_fetch_array($resIdProd)){
+                array_push($listProd,$ligne[0]);
+            };
+        };
+        return $listProd;
+    }
+
+    function AfficherInv($session, $listProd){
+
+        foreach ($listProd as $idProd) {
+            $requeteInv = ("SELECT p.lib_prod, p.marque_prod, p.nutriscore_prod, image_prod, SUM(c.qte_prod) 
+                            FROM armoire a, contenir c, produit p
+                            WHERE c.id_armoire = a.id_armoire
+                              AND p.id_prod = c.id_prod
+                              AND p.id_prod = $idProd
+                            GROUP BY p.lib_prod, p.marque_prod, p.nutriscore_prod;
+            ");
+
+            $resInv = mysqli_query($session,$requeteInv);
+            if($resInv == TRUE){
+                while($ligne = mysqli_fetch_array($resInv)){
+                    $nomProd = $ligne[0];
+                    $marqueProd = $ligne[1];
+                    $nutriScore = $ligne[2];
+                    $imageProd = $ligne[3];
+                    $qteProd = $ligne[4];
+                    echo("
+                        <tr>
+                            <td class='section nomProd'>
+                                <div class='imgContainer'>
+                                    <img src='$imageProd' alt='photo $nomProd'>
+                                </div>
+                            </td>
+                            <td class='section nomProd'>$marqueProd</td>
+                            <td class='section'>$nomProd</td>
+                            <td class='section'>".strtoupper($nutriScore)."</td>
+                            <td class='section'>$qteProd</td>
+                        </tr>
+                        <tr class='divider'>
+                            <td colspan='5'></td>
+                        </tr>
+                    ");
+                };
+            }
+            else{
+                echo("erreur requete");
+            };
+        };
+    };
 
 ?>

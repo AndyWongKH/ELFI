@@ -1,6 +1,7 @@
 <?php
     session_start();
     require("BD.php");
+    require('fonctions.php');
     $_SESSION["panier"] = []; // initialise un panier pour cet utilisateur
     $_SESSION["total"] = 0; // initialise un total pour cet utilisateur
     $mailUser = $_SESSION["mailUser"];
@@ -32,8 +33,18 @@
     };
     $initial = $nomUtilisateur[0]; // récupérer l'initial du prénom pour personaliser le badge 
 
-    
+    // Récupérer les produits dans l'armoire de l'utilisateur
+    // $produit = select distinct id_prod,nom_prod,marque_prod, from contenir where id_armoire = $id_armoire
+    // array_push($listProd, $produit)
 
+    // Pour chaques produits, faire la somme des quantités
+    // for each ($listProd as $produit){
+    //      $produit =  
+    //      $quantite = count produit 
+    //      array_push($listProd2, )
+    // }
+    
+    $listProd = ListeProduitInv($session,$id_armoire);
 ?>
 <!DOCTYPE html>
 
@@ -115,93 +126,16 @@
             </div>
 
             <!-- Zone d'affichage des produits dans l'inventaire -->
-            <div id="label">
-                    <p>Nom</p>
-                    <p>Marque</p>
-                    <p>Nutriscore</p>
-                    <p>Quantité</p>
-            </div>
             <div id="productContainer">
                 <table>
-                    <tr>
-                        <td>Nom</td>
-                        <td>Marque</td>
-                        <td>Nutriscore</td>
-                        <td>Quantité</td>
-                    </tr>
-
+                <tr>
+                    <td colspan="2" class = "section marqueProd">Marque</td>
+                    <td class = "section">Nom</td>
+                    <td class = "section">Nutriscore</td>
+                    <td class = "section">Quantité</td>
+                </tr>
+                    <?php AfficherInv($session,$listProd); ?>
                 </table>
-                <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
-                    <p>.</p>
             </div>
         </div>
     </body>

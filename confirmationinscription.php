@@ -20,8 +20,8 @@
         <?php
          require ('BD.php');
         function verifiermail($email,$base){
-  $session=connexion();
-  $trouve = false;
+        $session=connexion();
+        $trouve = false;
   mysqli_select_db($session, $base);
       $requete1=" SELECT email_user FROM utilisateur";
       $execute1=mysqli_query($session,$requete1);

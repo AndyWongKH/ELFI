@@ -80,7 +80,10 @@
 
         <!-- DASHBOARD -->
         <div id="dashboard">
-            <h3>Mes infos</h3>
+            <div>
+                <h3>Mes infos </h3>
+                <small><a href="modificationinfo.html">modifier</a></small>
+            </div>
             <div id="infos">
                 <div class="itemInfo">
                     <h4>Taille</h4>

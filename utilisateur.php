@@ -24,10 +24,13 @@
     };
 
     //Recupérer le nom utilisateur
-    $username = mysqli_query($session, "SELECT  nom_user, prenom_user FROM utilisateur WHERE email_user = '$mailUser';");
+    $username = mysqli_query($session, "SELECT  nom_user, prenom_user, taille_user, poids_user, imc_user FROM utilisateur WHERE email_user = '$mailUser';");
     while($ligne = mysqli_fetch_array($username)){
         $nomUtilisateur = $ligne[0];
         $prenomUtilisateur = $ligne[1];
+        $tailleUtilisateur = $ligne[2];
+        $poidsUtilisateur = $ligne[3];
+        $imcUtilisateur = $ligne[4];
     };
     $initial = $nomUtilisateur[0]; // récupérer l'initial du prénom pour personaliser le badge 
     $listProd = ListeProduitInv($session,$id_armoire); // ajouter la liste des produit dans une liste
@@ -74,21 +77,23 @@
                 <div class="itemInfo">
                     <h4>Taille</h4>
                     <div>
-                        <p>175 cm</p> <!--Modifiable-->
+                        <p>
+                            <?php echo($tailleUtilisateur) ?>
+                        </p> <!--Modifiable-->
                     </div>
                 </div>
 
                 <div class="itemInfo">
                     <h4>Poids</h4>
                     <div>
-                        <p>75 kg</p> <!--Modifiable-->
+                        <p><?php echo($poidsUtilisateur) ?></p> <!--Modifiable-->
                     </div>
                 </div>
 
                 <div class="itemInfo">
                     <h4>IMC</h4>
                     <div>
-                        <p>24.5</p> <!--Modifiable-->
+                        <p><?php echo($imcUtilisateur) ?></p> <!--Modifiable-->
                     </div>
                 </div>
 

@@ -31,7 +31,15 @@ opacity :1}
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=email], input[type=date], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+select{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -79,5 +87,12 @@ input[type=submit]:hover {
 
 #fermer:hover{
     background: rgba(119, 118, 118, 0.5);
+}
+.alert-danger{
+    color:#721c24;
+    background-color:#f8d7da;
+    border-color:#f5c6cb;
+    border-top-color:#f1b0b7;
+    color:#491217;
 }
 

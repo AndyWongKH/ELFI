@@ -20,7 +20,6 @@ echo ("<p>Echec de connection</p>");
 } else {
 // Sélection de la base de donnée
 if (mysqli_select_db($session, $nombase) == TRUE) {
-echo("connexion réussie");
 
 } else {
 echo ("Cette base n'existe pas");

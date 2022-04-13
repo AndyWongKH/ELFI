@@ -1,6 +1,11 @@
 <?php
 require ('BD.php');
 session_start();
+$_SESSION["mailUser"] = $_POST["username"];
+$_SESSION["fermerPopUp"] = False; // sert à fermer la popUp dans utilisateur.php
+
+
+
 if(isset($_POST['username']) && isset($_POST['password']))
 {
     // connexion à la base de données
@@ -27,7 +32,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
        if(password_verify($password, $pass)) // nom d'utilisateur et mot de passe correctes
         {
            $_SESSION['nom_user'] = $username;
-           header('Location: utilisateur.html');
+           header('Location: utilisateur.php');
         }
         else
         {

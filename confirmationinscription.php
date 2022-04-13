@@ -52,14 +52,22 @@ return $trouve;
           echo ("Un utiilisateur a déjà été enregistré avec cet email");
           }
           else {
-          $insertion="INSERT INTO `utilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$imc', '$sexe') ";
+            // Insertion d'un utilisateur
+            $insertion="INSERT INTO `utilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$imc', '$sexe'); ";
+            $execute=mysqli_query($session,$insertion);
+            if($execute==true){
+              echo("</br>L'inscription a été enregistrée !</br>");
+            }else{
+              echo("L'inscription n'as pas pu être effectué");
+            };  
+            // insertion d'une armoire
+          $insertion = "INSERT INTO armoire(email_user) VALUES('$email')";
           $execute=mysqli_query($session,$insertion);
-      if($execute==true){
-        echo("</br>L'inscription a été enregistrée !</br>");
-      }else{
-        echo("L'inscription n'as pas pu être effectué");
-      };  
-
+          if($execute==true){
+            echo("</br>L'armoire a été enregistrée !</br>");
+          }else{
+            echo("L'armoire n'as pas pu être effectué");
+          };  
          } 
         ?>
       

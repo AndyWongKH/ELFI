@@ -85,12 +85,7 @@
             $image = $produit[3];
             $score = $produit[4];
             $quantite = $produit[5]; 
-            echo($id);
-            echo("<br>");
-            echo($idArmoire);
-            echo("<br>");
-            echo("quantité : $quantite");
-            echo("<br>");
+            
             // Code d'insertion BD ...
             // Ajouter les produits dans l'inventaire
             $requeteInventaire = ("INSERT INTO contenir(id_prod,id_armoire,qte_prod) VALUES($id,$idArmoire,$quantite)");
@@ -104,6 +99,7 @@
         return $message;
     };
 
+    //Reccupère la liste des produits contenu dans l'armoire d'un utilisateur
     function ListeProduitInv($session, $id_armoire){
         $listProd = [];
         $requeteIdProd = ("SELECT DISTINCT id_prod FROM contenir WHERE id_armoire = $id_armoire"); 
@@ -116,6 +112,7 @@
         return $listProd;
     }
 
+    // Affiche la liste des produit dans l'armoire d'un utilisateur 
     function AfficherInv($session, $listProd){
 
         foreach ($listProd as $idProd) {

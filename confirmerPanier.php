@@ -5,11 +5,10 @@
     $panier = $_SESSION["panier"];
     $idUser = $_SESSION["mailUser"];
     $idArmoire = $_SESSION["id_armoire"];
-    echo("id armoire : $idArmoire");
 
     $message = InsererProduit($session,$panier); // Insertion des produits si ils ne sont pas encore dans la base
     $insertionArmoire = InsererPanier($session,$panier, $idArmoire); // Insertion des produits dans l'armoire utilisateur
-    echo($insertionArmoire);
+    // echo($insertionArmoire);
     $_SESSION["panier"] = 0; //Réinitialisation du panier
 ?>
 

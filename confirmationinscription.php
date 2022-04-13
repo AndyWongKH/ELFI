@@ -54,8 +54,13 @@ return $trouve;
           else {
           $insertion="INSERT INTO `utilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$imc', '$sexe') ";
           $execute=mysqli_query($session,$insertion);
-      if($execute==true){
+        if($execute==true){
+         $insertion2=" INSERT INTO `armoire` (`id_armoire`, `email_user`) VALUES (NULL ,'$email')";
+         $execute2=mysqli_query($session,$insertion2);
+        }
+      if($execute2==true){
         echo("</br>L'inscription a été enregistrée !</br>");
+      
       }else{
         echo("L'inscription n'as pas pu être effectué");
       };  

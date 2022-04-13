@@ -23,11 +23,9 @@
             <form id="form_connexion" action="verification.php" method="POST">
                 <h1>Connexion</h1>
 
-                <label><b>Adresse mail</b></label>
-                <input class="formInput" title="entrez votre pseudo" type="text" placeholder="Entrer votre adresse email" name="email" required>
+                <label><b>Nom d'utilisateur</b></label>
+                <input class="formInput" title="entrez votre pseudo" type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
         
-
-                
                 <label><b>Mot de passe</b></label>
                 <input class="formInput" title="entrez votre mot de passe" type="password" placeholder="Entrer le mot de passe" name="password" required>
         
@@ -42,8 +40,3 @@
 
 </body>
 </html>
-<?php
-    // require("BD.php");
-    // $email = $_POST["email"];
-    // $mdp = $_POST["password"];
-?>

@@ -94,14 +94,14 @@
                     </div>
                 </div>
                 <form class = 'selectorContainer' action='panier.php' method='get'>
-                    <button type='button' class='retirerBtn' onclick = 'changerQte($id,0)'> - </button>
                     <input type='number' name='id' value='$id' style='display : none;'>
                     <input type='text' name='idP' value='$idP' style='display : none;'>
                     <input type='text' name='nom' value='$nomP' style='display : none;'>
                     <input type='text' name='marque' value='$marqueP' style='display : none;'>
                     <input type='text' name='image' value='$src' style='display : none;'>   
                     <input type='text' name='score' value='$nutriscore' style='display : none;'>
-
+                    
+                    <button type='button' class='retirerBtn' onclick = 'changerQte($id,0)'> - </button>
                     <input id='inputP$id' type='number' min='0' value = '$nb' name='quantites'>
                     <button type='button' class='ajouterBtn' onclick = 'changerQte($id,1)'>+</button>
                     <button type='submit' class='ajouterPanier'>Ajouter</button>
@@ -170,7 +170,6 @@
                 <?php
                     $nbResultat = $json_data -> count;
                     echo($nbResultat);
-
                 ?>
             <p>
         </div>

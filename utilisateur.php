@@ -78,7 +78,7 @@
                     <h4>Taille</h4>
                     <div>
                         <p>
-                            <?php echo($tailleUtilisateur) ?>
+                            <?php echo("$tailleUtilisateur cm") ?>
                         </p> <!--Modifiable-->
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 <div class="itemInfo">
                     <h4>Poids</h4>
                     <div>
-                        <p><?php echo($poidsUtilisateur) ?></p> <!--Modifiable-->
+                        <p><?php echo("$poidsUtilisateur kg") ?></p> <!--Modifiable-->
                     </div>
                 </div>
 
@@ -135,3 +135,19 @@
     </body>
 
 </html>
+
+<script>
+    function changerQte(id,type){
+        const idElt = "P" + id;
+        var qte = document.getElementById(idElt).value;
+
+        if(type == 0 && qte > 0){
+            qte--;
+            document.getElementById(idElt).value = qte;
+        }
+        else if(type == 1){
+            qte++;
+            document.getElementById(idElt).value = qte;   
+        }
+    };
+</script>

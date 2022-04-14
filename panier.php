@@ -31,7 +31,6 @@
         array_push($produit,$idP,$nom,$marque,$image,$score,$qte);
         array_push($panier,$produit);
     }
-    
 
     AjouterProduit($idP,$nom,$marque,$image,$score,$qte, $panier);
     $_SESSION["panier"] = $panier;

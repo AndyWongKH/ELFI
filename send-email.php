@@ -15,9 +15,7 @@ if($_POST) {
 
    $name = trim(stripslashes($_POST['name']));
    $email = trim(stripslashes($_POST['email']));
-   $subject = trim(stripslashes($_POST['subject']));
    $contact_message = trim(stripslashes($_POST['message']));
-
    $phone = trim(stripslashes($_POST['phone']));
    $company = trim(stripslashes($_POST['company']));
 
@@ -25,11 +23,12 @@ if($_POST) {
    if ($company == '') { $company = "N/A"; }
 
    
-	if ($subject == '') { $subject = "Contact Form Submission"; }
+   $subject = "Contact Form Submission"; 
 
    // Set Message
+   $message = "";
    $message .= "Email from: " . $name . "<br />";
-	 $message .= "Email address: " . $email . "<br />";
+	$message .= "Email address: " . $email . "<br />";
    $message .= "Phone: " . $phone . "<br />";
    $message .= "Company: " . $company . "<br />";
    $message .= "Message: <br />";

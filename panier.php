@@ -18,7 +18,6 @@
     $panier = $_SESSION["panier"];
     $id = $_GET["id"];
     // Récupérer les données produit
-    $json_data = $_SESSION["json_data"];
     $idP = $_GET["idP"];
     $nom = $_GET["nom"];
     $marque = $_GET["marque"];

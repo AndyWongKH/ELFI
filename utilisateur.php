@@ -5,7 +5,6 @@
     $_SESSION["panier"] = []; // initialise un panier pour cet utilisateur
     $_SESSION["total"] = 0; // initialise un total pour cet utilisateur
     $mailUser = $_SESSION["mailUser"];
-    $id_armoire = $_SESSION["id_armoire"];
 
     // Recupérer l'id de l'armoire et le mettre dans une session
     $requeteArmoire = mysqli_query($session, "SELECT id_armoire FROM armoire WHERE email_user = '$mailUser'");

@@ -57,7 +57,6 @@
     $json = file_get_contents($url);
     // FALSE json_decode retourne un objet
     $json_data = json_decode($json, FALSE); 
-    $_SESSION["json_data"] = $json_data;
 
     function AfficherCarteProduit($id,$idP, $src, $alt, $marqueP, $nomP, $nutriscore){
         $selected = "Off" ;
@@ -140,7 +139,7 @@
 
     function ajouterAuPanier($id, &$produitAffiche){
         array_push($panier, $produitAffiche[$id]);
-    }
+    };
 
 ?>
 <body>
@@ -198,7 +197,6 @@
             
             <form id="navigation" action="rechercher.php" method="get">
                 <input  type="text" value="<?php echo($sujetRecherche) ?>" name="chercherP" style="display:none"/>
-
                 <?php
                     echo("<button type='submit'name='page' value='$previous' $disable>$previous</button>");
                     echo("<p>Page $page sur $nbPage</p>");

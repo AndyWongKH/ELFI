@@ -52,7 +52,7 @@ return $trouve;
           echo ("Un utiilisateur a déjà été enregistré avec cet email");
           }
           else {
-          $insertion="INSERT INTO `utilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `taille_user`, `poids_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$taile','$poids','$imc', '$sexe') ";
+          $insertion="INSERT INTO `utilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `taille_user`, `poids_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$taille','$poids','$imc', '$sexe') ";
           $execute=mysqli_query($session,$insertion);
         if($execute==true){
          $insertion2=" INSERT INTO `armoire` (`id_armoire`, `email_user`) VALUES (NULL ,'$email')";

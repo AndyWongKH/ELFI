@@ -25,18 +25,18 @@ session_start();
 $informations=mysqli_query($session,$query);
  while ($ligne=mysqli_fetch_array ($informations)){
 
-echo ("<p><span>Nom:</span> <input id='nomE' name='nomE' type='text' value='".utf8_encode($ligne['nom_user'])."'></input></p>
-       <p><span>Prénom:</span> <input id='prenomE' name='prenomE' type='text' value='".utf8_encode($ligne['prenom_user'])."' ></input></p>     
+echo ("<p><span>Nom:</span> <input id='nomE' name='nomE' type='text' value='".$ligne['nom_user']."'></input></p>
+       <p><span>Prénom:</span> <input id='prenomE' name='prenomE' type='text' value='".$ligne['prenom_user']."' ></input></p>     
     
-          <p><span>Date de naissance:</span> <input class='formInput' id='dateE' name='dateE' type='Date' value=".utf8_encode($ligne['datenaiss_user'])." ></input></p>
+          <p><span>Date de naissance:</span> <input class='formInput' id='dateE' name='dateE' type='Date' value=".$ligne['datenaiss_user']." ></input></p>
 
-          <p><span>Adresse:</span> <input class='formInput' id='AdresseE' name='AdresseE' type='text' value='".utf8_encode($ligne['adresse_user'])."'></input></p>  
+          <p><span>Adresse:</span> <input class='formInput' id='AdresseE' name='AdresseE' type='text' value='".$ligne['adresse_user']."'></input></p>  
 
-          <p><span>Taille en m:</span> <input class='formInput' id='tailleE' name='tailleE' type='number' step='any'value='".utf8_encode($ligne['taille_user'])."'></input></p>  
+          <p><span>Taille en m:</span> <input class='formInput' id='tailleE' name='tailleE' type='number' step='any'value='".$ligne['taille_user']."'></input></p>  
 
-          <p><span>Poids en kg:</span> <input class='formInput' id='poidsE' name='poidsE' type='number' value='".utf8_encode($ligne['poids_user'])."'></input></p>
+          <p><span>Poids en kg:</span> <input class='formInput' id='poidsE' name='poidsE' type='number' value='".$ligne['poids_user']."'></input></p>
 
-          <p><span>Sexe:</span> <select class='formInput' id='sexeE' name='sexeE' value='".utf8_encode($ligne['sexe_user'])."'> 
+          <p><span>Sexe:</span> <select class='formInput' id='sexeE' name='sexeE' value='".$ligne['sexe_user']."'> 
                                         <option>M.</option>
                                         <option>Mme</option>
                                 </select></p>

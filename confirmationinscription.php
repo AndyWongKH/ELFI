@@ -39,7 +39,7 @@ return $trouve;
           $prenom=$_POST["prenomE"];
           $mdp=$_POST["pwd"];
           $date=$_POST["dateE"];
-          $adresse=$_POST["AdresseE"];
+          $adresse=($_POST["AdresseE"]);
           $taille=$_POST["tailleE"];
           $poids=$_POST["poidsE"];
           $sexe=$_POST["sexeE"];

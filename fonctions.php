@@ -143,11 +143,11 @@
                             <td class='section'>$nomProd</td>
                             <td class='section'>".strtoupper($nutriScore)."</td>
                             <td class='section'>
-                                <form action='modifierArmoire.php' method='get'>
+                                <form id ='btns'action='modifierArmoire.php' method='get'>
                                     <button type='button' class='retirerBtn' onclick = 'changerQte($idProd,0)'>-</button>
-                                    <input id='P$idProd' type='number' value='$qteProd' name='qte' />
+                                    <input class='input' id='P$idProd' type='number' value='$qteProd' name='qte' />
                                     <button type='button' class='ajouterBtn' onclick = 'changerQte($idProd,1)'>+</button>
-                                    <button id='$idProd' type='submit' name='idProd' value='$idProd'>modifier</button>
+                                    <button class='submit' id='$idProd' type='submit' name='idProd' value='$idProd'>modifier</button>
                                 </form>
                             </td>
                         </tr>

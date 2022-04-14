@@ -23,7 +23,7 @@
   $session=connexion();
   $trouve = false;
   mysqli_select_db($session, $base);
-      $requete1=" SELECT email_user FROM utiilisateur";
+      $requete1=" SELECT email_user FROM utilisateur";
       $execute1=mysqli_query($session,$requete1);
        while ($ligne=mysqli_fetch_array($execute1)) {
         if ($email==$ligne["email_user"]) {
@@ -52,10 +52,15 @@ return $trouve;
           echo ("Un utiilisateur a déjà été enregistré avec cet email");
           }
           else {
-          $insertion="INSERT INTO `utiilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$imc', '$sexe') ";
+          $insertion="INSERT INTO `utilisateur` (`email_user`, `nom_user`, `prenom_user`, `mdp_user`, `datenaiss_user`, `adresse_user`, `taille_user`, `poids_user`, `imc_user`, `sexe_user`) VALUES ('$email', '$nom', '$prenom', '$pwd', '$date', '$adresse', '$taille','$poids','$imc', '$sexe') ";
           $execute=mysqli_query($session,$insertion);
-      if($execute==true){
+        if($execute==true){
+         $insertion2=" INSERT INTO `armoire` (`id_armoire`, `email_user`) VALUES (NULL ,'$email')";
+         $execute2=mysqli_query($session,$insertion2);
+        }
+      if($execute2==true){
         echo("</br>L'inscription a été enregistrée !</br>");
+      
       }else{
         echo("L'inscription n'as pas pu être effectué");
       };  

@@ -1,5 +1,11 @@
 <?php
+require ('BD.php');
 session_start();
+$_SESSION["mailUser"] = $_POST["username"];
+$_SESSION["fermerPopUp"] = False; // sert à fermer la popUp dans utilisateur.php
+
+
+
 if(isset($_POST['username']) && isset($_POST['password']))
 {
     // connexion à la base de données
@@ -12,35 +18,31 @@ if(isset($_POST['username']) && isset($_POST['password']))
     
     // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
     // pour éliminer toute attaque de type injection SQL et XSS
-    // $username = mysqli_real_escape_string($db,htmlspecialchars($_POST['username'])); 
-    // $password = mysqli_real_escape_string($db,htmlspecialchars($_POST['password']));
+    $username = mysqli_real_escape_string($db,htmlspecialchars($_POST['username'])); 
+    $password = mysqli_real_escape_string($db,htmlspecialchars($_POST['password']));
     
     if($username <> "" && $password <> "")
     {
-        $requete = "SELECT count(*) FROM utilisateur
-        --  where 
-            --   email_user = 'etu.wongandy@gmail.com' and mdp_user = '1234' ";
-        $exec_requete = mysqli_query($db,$requete);
-        $reponse      = mysqli_fetch_array($exec_requete);
-        $count = $reponse['count(*)'];
-        if($count!=0) // nom d'utilisateur et mot de passe correctes
+        $requete = "SELECT mdp_user FROM utilisateur where email_user = '$username' ";
+       $execute=mysqli_query($session,$requete);
+       while ($ligne=mysqli_fetch_array($execute)) {
+        $pass=$ligne['mdp_user'];
+        
+    }
+       if(password_verify($password, $pass)) // nom d'utilisateur et mot de passe correctes
         {
            $_SESSION['nom_user'] = $username;
            header('Location: utilisateur.php');
         }
         else
         {
-           header('Location: login.php?erreur=1'); // utilisateur ou mot de passe incorrect
+           header('Location: connexion.php?erreur=1'); // utilisateur ou mot de passe incorrect
         }
-    }
-    else
-    {
-       header('Location: login.php?erreur=2'); // utilisateur ou mot de passe vide
     }
 }
 else
 {
-   header('Location: login.php');
+   header('Location: connexion.php');
 }
 mysqli_close($db); // fermer la connexion
 ?>

@@ -26,24 +26,11 @@
     $score = $_GET["score"];
     $qte = $_GET["quantites"];
 
-    // Ajouter le produit dans le panier
-    // function AjouterProduit($idP,$nom,$marque,$image,$score,$qte, &$panier){
-    //     $produit = new Produit();
-    //     $produit -> set_id($idP);
-    //     $produit -> set_nom($nom);
-    //     $produit -> set_marque($marque);
-    //     $produit -> set_image($image);
-    //     $produit -> set_score($score);
-    //     $produit -> set_quantite($qte);
-
-    //     array_push($panier, $produit);
-    // }
     function AjouterProduit($idP,$nom,$marque,$image,$score,$qte, &$panier){
         $produit = [];
         array_push($produit,$idP,$nom,$marque,$image,$score,$qte);
         array_push($panier,$produit);
     }
-    
 
     AjouterProduit($idP,$nom,$marque,$image,$score,$qte, $panier);
     $_SESSION["panier"] = $panier;
